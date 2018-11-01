@@ -1,9 +1,16 @@
 const ncp = require('ncp').ncp
 const download = require('download-git-repo')
 const c = require('chalk')
+const fs = require('fs')
+const rm = require('rimraf')
 const Conf = require('conf')
 
 const config = new Conf()
+
+const deleteGitFolder = () => {
+  if (fs.existsSync(`${process.cwd()}/.git`))
+    rm(`${process.cwd()}/.git`, err => (err ? console.error(err) : null))
+}
 
 module.exports = (args, flags) => {
   const dest = process.cwd()
@@ -30,11 +37,13 @@ module.exports = (args, flags) => {
   if (config.get('path') !== undefined) {
     ncp(config.get('path'), dest, function(err) {
       if (err) return console.error(err)
+      deleteGitFolder()
       console.log('done!')
     })
   } else if (config.get('uri') !== undefined) {
     download(config.get('uri'), dest, function(err) {
       if (err) return console.error(err)
+      deleteGitFolder()
       console.log('done!')
     })
   } else {
