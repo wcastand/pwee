@@ -8,6 +8,10 @@
   "scripts": {
     "dev": "node cli.js"
   },
+  "files": [
+    "cli.js",
+    "index.js"
+  ],
   "author": "wcastand <wcastand@gmail.com> (https://github.com/wcastand)",
   "license": "MIT",
   "dependencies": {

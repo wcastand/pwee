@@ -14,12 +14,18 @@ module.exports = (args, flags) => {
     return
   }
   if (flags.uri) {
-    config.set('uri', flags.uri)
+    if (flags.uri.includes('https://github.com/')) {
+      config.set('uri', flags.uri.replace('https://github.com/', ''))
+    } else {
+      config.set('uri', flags.uri)
+    }
     console.log('repo set')
+    return
   }
   if (flags.path) {
     console.log('path set.')
     config.set('path', flags.path)
+    return
   }
   if (config.get('path') !== undefined) {
     ncp(config.get('path'), dest, function(err) {
