@@ -1,0 +1,21 @@
+{
+  "name": "pwee",
+  "version": "0.0.1",
+  "description": "copy starting file into the current directory",
+  "bin": {
+    "pwee": "cli.js"
+  },
+  "scripts": {
+    "dev": "node cli.js"
+  },
+  "author": "wcastand <wcastand@gmail.com> (https://github.com/wcastand)",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "conf": "^2.0.0",
+    "download-git-repo": "^1.1.0",
+    "isomorphic-fetch": "^2.2.1",
+    "meow": "^5.0.0",
+    "ncp": "^2.0.0"
+  }
+}
