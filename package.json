@@ -1,6 +1,6 @@
 {
   "name": "pwee",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "copy starting file into the current directory",
   "bin": {
     "pwee": "cli.js"
