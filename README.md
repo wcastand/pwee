@@ -8,7 +8,7 @@ Quickly copy some files into the current folder.
 $ npm i -g pwee
 
 // only the first time
-$ pwee --uri wcastand/pwee-folder
+$ pwee --uri https://github.com/wcastand/pwee-folder/archive/master.zip
 
 // after until you clear the config you can use it directly
 $ pwee
@@ -18,9 +18,9 @@ $ pwee
 
 #### --uri
 
-use to set a repo (github/gitlab/bitbucket)
+use to set a url to a .zip
 
-`$ pwee --uri wcastand/pwee-folder`
+`$ pwee --uri https://github.com/wcastand/pwee-folder/archive/master.zip
 
 #### --path
 

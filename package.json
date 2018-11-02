@@ -10,17 +10,18 @@
   },
   "files": [
     "cli.js",
-    "index.js"
+    "index.js",
+    "download.js"
   ],
   "author": "wcastand <wcastand@gmail.com> (https://github.com/wcastand)",
   "license": "MIT",
   "dependencies": {
-    "chalk": "^2.4.1",
     "conf": "^2.0.0",
-    "download-git-repo": "^1.1.0",
+    "copy-dir": "^0.4.0",
+    "decompress": "^4.2.0",
     "isomorphic-fetch": "^2.2.1",
     "meow": "^5.0.0",
-    "ncp": "^2.0.0",
+    "niceuho": "^0.0.2",
     "rimraf": "^2.6.2"
   }
 }

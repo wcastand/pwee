@@ -1,16 +1,11 @@
-const ncp = require('ncp').ncp
-const download = require('download-git-repo')
-const c = require('chalk')
-const fs = require('fs')
-const rm = require('rimraf')
+require('niceuho')({ log: 'green' })
+
 const Conf = require('conf')
+const cp = require('copy-dir')
+
+const dl = require('./download')
 
 const config = new Conf()
-
-const deleteGitFolder = () => {
-  if (fs.existsSync(`${process.cwd()}/.git`))
-    rm(`${process.cwd()}/.git`, err => (err ? console.error(err) : null))
-}
 
 module.exports = (args, flags) => {
   const dest = process.cwd()
@@ -21,11 +16,7 @@ module.exports = (args, flags) => {
     return
   }
   if (flags.uri) {
-    if (flags.uri.includes('https://github.com/')) {
-      config.set('uri', flags.uri.replace('https://github.com/', ''))
-    } else {
-      config.set('uri', flags.uri)
-    }
+    config.set('uri', flags.uri)
     console.log('repo set')
     return
   }
@@ -35,20 +26,14 @@ module.exports = (args, flags) => {
     return
   }
   if (config.get('path') !== undefined) {
-    ncp(config.get('path'), dest, function(err) {
+    cp(config.get('path'), dest, function(err) {
       if (err) return console.error(err)
-      deleteGitFolder()
-      console.log('done!')
+      console.log('Done')
     })
   } else if (config.get('uri') !== undefined) {
-    download(config.get('uri'), dest, function(err) {
-      if (err) return console.error(err)
-      deleteGitFolder()
-      console.log('done!')
-    })
+    dl(config.get('uri'), dest)
   } else {
-    console.log(
-      "You need to set at least a local directory (--path) or a github/gitlab/bitbucket repo (--uri) if you're usin pwee for the first time or have cleared the config(--clear).",
-    )
+    console.info("if you're using pwee for the first time or have cleared the config (--clear).")
+    console.info('You need to set at least a local directory (--path) or a url for a .zip (--uri).')
   }
 }
