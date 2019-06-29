@@ -1,6 +1,6 @@
 {
   "name": "pwee",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "copy starting file into the current directory",
   "homepage": "https://github.com/wcastand/pwee",
   "bin": {
