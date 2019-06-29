@@ -25,4 +25,4 @@ const cli = meow(
   },
 )
 
-pwee(cli.input[0], cli.flags)
+pwee(cli.flags)

@@ -2,9 +2,11 @@
   "name": "pwee",
   "version": "1.0.0",
   "description": "copy starting file into the current directory",
+  "homepage": "https://github.com/wcastand/pwee",
   "bin": {
     "pwee": "cli.js"
   },
+  "main": "index.js",
   "scripts": {
     "dev": "node cli.js"
   },
@@ -14,6 +16,10 @@
     "download.js"
   ],
   "author": "wcastand <wcastand@gmail.com> (https://github.com/wcastand)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wcastand/pwee"
+  },
   "license": "MIT",
   "dependencies": {
     "conf": "^2.0.0",

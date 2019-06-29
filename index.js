@@ -7,7 +7,7 @@ const dl = require('./download')
 
 const config = new Conf()
 
-module.exports = (args, flags) => {
+module.exports = flags => {
   const dest = process.cwd()
   if (flags.clear) {
     config.delete('uri')
