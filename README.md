@@ -4,6 +4,15 @@ Quickly copy some files into the current folder.
 
 # Usage
 
+```js
+const pwee = require('pwee')
+const params = { uri: 'https://github.com/wcastand/pwee-folder/archive/master.zip' }
+pwee(params)
+pwee() // copy file ot proces.cwd()
+```
+
+# Usage CLI
+
 ```
 $ npm i -g pwee
 
@@ -20,7 +29,7 @@ $ pwee
 
 use to set a url to a .zip
 
-`$ pwee --uri https://github.com/wcastand/pwee-folder/archive/master.zip
+`\$ pwee --uri https://github.com/wcastand/pwee-folder/archive/master.zip
 
 #### --path
 

@@ -4,15 +4,17 @@ const decompress = require('decompress')
 
 require('isomorphic-fetch')
 
-module.exports = (uri, dest, cb) => {
+module.exports = (uri, dest = process.pwd()) => {
   const zip = fs.createWriteStream('./master.zip')
-  fetch(uri)
+  return fetch(uri)
     .then(res => res.buffer())
     .then(buffer => zip.write(buffer))
-    .then(() => {
-      decompress('master.zip', process.cwd(), { strip: 1 }).then(files => {
-        rm('master.zip', err => (err ? console.error(err) : console.log('Done.')))
-        if (cb) cb()
-      })
-    })
+    .then(
+      () =>
+        new Promise((resolve, reject) => {
+          decompress('master.zip', dest, { strip: 1 }).then(files =>
+            rm('master.zip', err => (err ? reject(err) : resolve('Done.'))),
+          )
+        }),
+    )
 }
